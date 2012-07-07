@@ -28,6 +28,7 @@ module Peddler
       'DE' => 'A1PA6795UKMFR9',
       'ES' => 'A1RKKUPIHCS9HS',
       'FR' => 'A13V1IB3VIYZZH',
+      'IN' => nil,
       'IT' => 'APJ6JRA9NG5V4',
       'JP' => nil,
       'UK' => 'A1F83G8C2ARO7P',
