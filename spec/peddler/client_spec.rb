@@ -14,6 +14,14 @@ module Peddler
           Client.new 'foo'
         }.to raise_error Client::BadLocale
       end
+
+      context 'given a hash' do
+        it 'should set credentials' do
+          hsh = {}
+          Client.any_instance.should_receive(:configure).with(hsh)
+          Client.new 'US', hsh
+        end
+      end
     end
 
     describe '#configure' do
