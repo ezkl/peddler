@@ -1,0 +1,40 @@
+CA:
+  key:    foo
+  secret: bar
+  seller: baz
+CN:
+  key:    foo
+  secret: bar
+  seller: baz
+DE:
+  key:    foo
+  secret: bar
+  seller: baz
+ES:
+  key:    foo
+  secret: bar
+  seller: baz
+FR:
+  key:    foo
+  secret: bar
+  seller: baz
+IN:
+  key:    foo
+  secret: bar
+  seller: baz
+IT:
+  key:    foo
+  secret: bar
+  seller: baz
+JP:
+  key:    foo
+  secret: bar
+  seller: baz
+UK:
+  key:    foo
+  secret: bar
+  seller: baz
+US:
+  key:    foo
+  secret: bar
+  seller: baz
