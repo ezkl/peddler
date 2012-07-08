@@ -74,13 +74,15 @@ module Peddler
       end
     end
 
-    describe '#list' do
-      subject { client.list 'Key', (1..10).to_a }
+    describe '#products' do
+      subject { client.products }
 
-      it 'should use a dot notation' do
-        1.upto(10).each do |count|
-          should include "KeyList.Key.#{count}"
-        end
+      it 'should return the MWS Products API' do
+        should be_an MWS::Products
+      end
+
+      it 'should cache the API' do
+        should be subject
       end
     end
   end

@@ -1,5 +1,7 @@
 require 'jeff'
 
+require 'peddler/mws/products'
+
 module Peddler
   # A client to Amazon Marketplace Web Service (MWS) APIs.
   class Client
@@ -80,18 +82,15 @@ module Peddler
     # Sets the String seller id.
     attr_writer :seller
 
-    # Internal: Builds a parameter list for bulk operations.
-    #
-    # name   - The String base name of the list.
-    # values - A String value or an Array of values.
-    #
-    # Returns a Hash of parameters.
-    def list(name, values)
-      Array(values)
-        .to_enum(:each_with_index)
-        .reduce({}) do |a, (v, i)|
-          a.update "#{name}List.#{name}.#{i + 1}" => v
+    # Define getters for the APIs.
+    %w(products).each do |api|
+      eval <<-DEF
+        def #{api}
+          @#{api} ||= begin
+            MWS::#{api.split('_').map { |w| w.capitalize }.join}.new self
+          end
         end
+      DEF
     end
   end
 end
