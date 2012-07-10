@@ -10,17 +10,7 @@ module Peddler
 
     describe '.new' do
       it 'should require a valid locale' do
-        expect {
-          Client.new 'foo'
-        }.to raise_error Client::BadLocale
-      end
-
-      context 'given a hash' do
-        it 'should set credentials' do
-          hsh = {}
-          Client.any_instance.should_receive(:configure).with(hsh)
-          Client.new 'US', hsh
-        end
+        expect { Client.new 'foo' }.to raise_error Client::BadLocale
       end
     end
 

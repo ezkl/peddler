@@ -40,11 +40,8 @@ module Peddler
     # Creates a client.
     #
     # locale - A String locale key.
-    # hsh    - The Hash credentials of the endpoint (default: nil). See
-    #          Client#configure for options.
-    def initialize(locale, hsh = {})
-      HOSTS.has_key? @locale = locale or raise BadLocale
-      configure hsh if hsh
+    def initialize(locale)
+      self.endpoint = "https://#{HOSTS[@locale = locale] or raise BadLocale}"
     end
 
     # Configures the credentials of the endpoint.
