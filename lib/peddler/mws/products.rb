@@ -1,14 +1,15 @@
 require 'forwardable'
 
-require 'peddler/mws/api'
+require 'peddler/api'
 
 module Peddler
   module MWS
     # A Client to the Amazon MWS Products API.
-    class Products < API
       def get_competitive_pricing_for_asin
         raise NotImplementedError
       end
+    class Products
+      include API
 
       def get_competitive_pricing_for_sku
         raise NotImplementedError
