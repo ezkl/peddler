@@ -1,3 +1,4 @@
+require 'stringio'
 
 require 'peddler/api'
 
@@ -31,18 +32,25 @@ module Peddler
         raise NotImplementedError
       end
 
-      # Returns the String service status of the Products API.
-      def get_service_status
-        url = products_url 'GetServiceStatus'
-        res = Response.new connection.get url
+      # Returns the String service status of the API.
+      def service_status
+        parser = Parser.new
 
-        if res.valid?
-          res.first 'Status'
-        else
-          raise BadResponse, res.first('Error')['Message']
-        end
-      end
+        streamer = ->(chunk, remaining, total) {
+          Ox.sax_parse parser, StringIO.new(chunk)
+        }
 
+        res = get path: '/Products/2011-10-01',
+            query: {
+              'Action' => 'GetServiceStatus',
+              'MarketplaceId' => @client.marketplace
+            },
+            response_block: streamer,
+            scheme: 'https'
+
+        parser.root.fetch(:get_service_status_response)
+                   .fetch(:get_service_status_result)
+                   .fetch(:status)
       end
     end
   end

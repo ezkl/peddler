@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{A wrapper to the Amazon Marketplace Web Service (MWS) API}
 
   s.add_dependency             'jeff', '~> 0.2.5'
+  s.add_dependency             'ox',   '~> 1.5.8'
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
