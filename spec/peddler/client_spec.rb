@@ -4,10 +4,6 @@ module Peddler
   describe Client do
     let(:client) { Client.new 'US' }
 
-    it 'should use Jeff' do
-      Client.included_modules.should include Jeff
-    end
-
     describe '.new' do
       it 'should require a valid locale' do
         expect { Client.new 'foo' }.to raise_error Client::BadLocale
