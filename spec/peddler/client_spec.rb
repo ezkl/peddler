@@ -2,7 +2,8 @@ require 'spec_helper'
 
 module Peddler
   describe Client do
-    let(:client) { Client.new 'US' }
+    let(:locale) { 'US' }
+    let(:client) { Client.new locale }
 
     describe '.new' do
       it 'should require a valid locale' do
@@ -31,6 +32,14 @@ module Peddler
         it 'should set credentials' do
           client.key.should eq 'foo'
         end
+      end
+    end
+
+    describe '#endpoint' do
+      subject { client.endpoint }
+
+      it 'should return the API endpoint of the locale' do
+        should match %r{https://mws}
       end
     end
 
@@ -63,11 +72,11 @@ module Peddler
     describe '#products' do
       subject { client.products }
 
-      it 'should return the MWS Products API' do
+      it 'should return the Products API' do
         should be_an MWS::Products
       end
 
-      it 'should cache the API' do
+      it 'should cache' do
         should be subject
       end
     end
