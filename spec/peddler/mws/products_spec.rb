@@ -11,11 +11,10 @@ module Peddler
 
       let(:products) { client.products }
 
-      describe '#get_service_status', vcr: { record: :all } do
-        subject { products.service_status }
+      describe '#get_service_status', :vcr do
+        subject { products.get_service_status }
 
         it 'returns the service status' do
-          pending
           should match /GREEN|GREEN_I|YELLOW|RED/
         end
       end

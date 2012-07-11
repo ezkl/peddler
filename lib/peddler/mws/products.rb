@@ -33,25 +33,22 @@ module Peddler
       end
 
       # Returns the String service status of the API.
-      def service_status
-        parser = Parser.new
-
-        streamer = ->(chunk, remaining, total) {
-          Ox.sax_parse parser, StringIO.new(chunk)
-        }
-
-        res = get path: '/Products/2011-10-01',
-            query: {
-              'Action' => 'GetServiceStatus',
-              'MarketplaceId' => @client.marketplace
-            },
-            response_block: streamer,
-            scheme: 'https'
-
-        parser.root.fetch(:get_service_status_response)
-                   .fetch(:get_service_status_result)
-                   .fetch(:status)
+      def get_service_status
+        res = request('GetServiceStatus')
+        res.body.root.fetch('GetServiceStatusResponse')
+                     .fetch('GetServiceStatusResult')
+                     .fetch('Status')
       end
+
+      private
+
+      def request(action, params = {})
+        get path: '/Products/2011-10-01',
+            query: {
+              'Action'        => action,
+              'MarketplaceId' => marketplace
+            }.merge(params)
+        end
     end
   end
 end
