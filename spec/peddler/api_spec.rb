@@ -14,14 +14,5 @@ module Peddler
         end
       end
     end
-
-    Excon::HTTP_VERBS.each do |method|
-      describe "##{method.upcase}" do
-        it "should delegate to the client" do
-          client.should_receive method
-          api.send method
-        end
-      end
-    end
   end
 end

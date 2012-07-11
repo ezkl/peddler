@@ -11,11 +11,16 @@ module Peddler
 
       let(:products) { client.products }
 
-      describe '#get_service_status', :vcr do
-        subject { products.get_service_status }
-
-        it 'returns the service status' do
-          should match /GREEN|GREEN_I|YELLOW|RED/
+      describe '#get', :vcr do
+        it 'should get the service status' do
+          products
+            .get('GetServiceStatus')
+            .body
+            .root
+            .fetch('GetServiceStatusResponse')
+            .fetch('GetServiceStatusResult')
+            .fetch('Status')
+            .should match /GREEN|GREEN_I|YELLOW|RED/
         end
       end
     end

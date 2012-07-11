@@ -1,13 +1,6 @@
-require 'forwardable'
-
 module Peddler
-  # Internal: A client mix-in.
   module API
-    def self.included(base)
-      base.extend Forwardable
-
-      base.def_delegators :@client, :marketplace, *Excon::HTTP_VERBS
-    end
+    attr :client
 
     def initialize(client)
       @client = client
