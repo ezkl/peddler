@@ -2,29 +2,28 @@
 http_interactions:
 - request:
     method: get
-    uri: https://mws.amazonservices.com/Products/2011-10-01?AWSAccessKeyId=AKIAJ767ZET2BZR4UDDQ&Action=GetServiceStatus&MarketplaceId=ATVPDKIKX0DER&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2012-07-11T19%3A00%3A44Z&Signature=1murHhpVoq8VLcKNC1k7HFfMAVv%2BbLCutCAtS2Gi%2F%2F0%3D
+    uri: https://mws.amazonservices.com/Products/2011-10-01?AWSAccessKeyId=AKIAJ767ZET2BZR4UDDQ&Action=GetServiceStatus&MarketplaceId=ATVPDKIKX0DER&SellerId=A2H6NH4SQYFZ4M&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2012-07-11T19%3A53%3A29Z&Signature=5hSy3PtsvyHUdPZ6u5i%2FtCTrKqyrYeLVGCpYU85ZfQk%3D
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Jeff/0.3.1 (Language=Ruby; smelly.local)
+      - Jeff/0.3.2 (Language=Ruby; smelly.local)
   response:
     status:
       code: 200
       message: 
     headers:
       Date:
-      - Wed, 11 Jul 2012 19:00:44 GMT
+      - Wed, 11 Jul 2012 19:53:29 GMT
       Server:
       - Server
       x-mws-request-id:
-      - be1169dc-558c-4825-aab5-54ab50cb6b1d
+      - 538ac1e2-e19e-4e02-8cf5-9b077b2de7c2
       x-mws-timestamp:
-      - '2012-07-11T19:00:44.831Z'
+      - '2012-07-11T19:53:29.562Z'
       x-mws-response-context:
-      - Dld8DZYRByzQxNGKNjRZ3QHuo/s1D+UjLy8WgpEe/haNEoL50Ip2WSATGV+K9df1rI52evKbbfty
-        TBSGZrKlAg==
+      - kY6PrGZjVj6VoH20CmlbcoWa6wEfnzd1yqqVqihp6oyTUpqiEaYjFzIogjKJruzoYFRCRlSY7Jg=
       Content-Type:
       - text/xml
       Content-Length:
@@ -34,9 +33,9 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\"?>\n<GetServiceStatusResponse xmlns=\"http://mws.amazonservices.com/schema/Products/2011-10-01\">\n
-        \ <GetServiceStatusResult>\n    <Status>GREEN</Status>\n    <Timestamp>2012-07-11T19:00:44.831Z</Timestamp>\n
-        \ </GetServiceStatusResult>\n  <ResponseMetadata>\n    <RequestId>be1169dc-558c-4825-aab5-54ab50cb6b1d</RequestId>\n
+        \ <GetServiceStatusResult>\n    <Status>GREEN</Status>\n    <Timestamp>2012-07-11T19:53:29.562Z</Timestamp>\n
+        \ </GetServiceStatusResult>\n  <ResponseMetadata>\n    <RequestId>538ac1e2-e19e-4e02-8cf5-9b077b2de7c2</RequestId>\n
         \ </ResponseMetadata>\n</GetServiceStatusResponse>\n"
     http_version: 
-  recorded_at: Wed, 11 Jul 2012 19:00:44 GMT
+  recorded_at: Wed, 11 Jul 2012 19:53:29 GMT
 recorded_with: VCR 2.2.3

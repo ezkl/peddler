@@ -22,6 +22,17 @@ module Peddler
             .fetch('Status')
             .should match /GREEN|GREEN_I|YELLOW|RED/
         end
+
+        it 'should get the lowest offer listings for ASINs' do
+          params = products.list 'ASIN', Asins.first(20)
+          res = products
+            .get('GetLowestOfferListingsForASIN', params)
+            .body
+            .root
+            .fetch('GetLowestOfferListingsForASINResponse')
+            .fetch('GetLowestOfferListingsForASINResult')
+            .should have(20).products
+        end
       end
     end
   end

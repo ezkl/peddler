@@ -18,7 +18,8 @@ module Peddler
         client.get path: '/Products/2011-10-01',
                    query: {
                      'Action'        => action,
-                     'MarketplaceId' => client.marketplace
+                     'MarketplaceId' => client.marketplace,
+                     'SellerId'      => client.seller
                    }.merge(params)
         end
     end
