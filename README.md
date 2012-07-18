@@ -12,7 +12,7 @@ client = Peddler.new 'US'
 client.configure do |c|
   c.key       = 'key'
   c.secret    = 'secret'
-  c.seller_id = 'seller_id'
+  c.seller = 'seller_id'
 end
 ```
 
